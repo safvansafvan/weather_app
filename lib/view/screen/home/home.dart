@@ -41,11 +41,38 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                Text("  Monday, 1 January 10 : 10",
-                    style: CustomFuction.textStyleFuction(
-                        size: 14,
-                        fontWeight: FontWeight.w500,
-                        color: CustomColor.kblack)),
+                Text(
+                  "  Monday, 1 January 10 : 10",
+                  style: CustomFuction.textStyleFuction(
+                      size: 14,
+                      fontWeight: FontWeight.w500,
+                      color: CustomColor.kblack),
+                ),
+                CustomHeights.commonHeight(context),
+                Container(
+                  height: 200,
+                  width: 300,
+                  decoration: BoxDecoration(
+                      gradient: const LinearGradient(colors: [
+                        Color.fromARGB(255, 124, 91, 181),
+                        Color.fromARGB(255, 74, 152, 216)
+                      ]),
+                      borderRadius: BorderRadius.circular(30),
+                      border: Border.all(color: Colors.blue, width: 2)),
+                  child: Stack(
+                    children: [
+                      Center(
+                        child: Text(
+                          '22',
+                          style: CustomFuction.textStyleFuction(
+                              size: 100,
+                              fontWeight: FontWeight.bold,
+                              color: CustomColor.kwhite),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
               ],
             ),
           ),

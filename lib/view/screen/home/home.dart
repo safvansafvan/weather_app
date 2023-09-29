@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/controller/core/constant.dart';
+import 'package:weather_app/view/screen/home/widgets/more_details_widget.dart';
+import 'package:weather_app/view/screen/home/widgets/weathers_hourly.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -72,7 +74,11 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                )
+                ),
+                CustomHeights.commonHeight(context),
+                MoreDetailsAboutWheater(),
+                CustomHeights.minHeight(context),
+                WethersHourly()
               ],
             ),
           ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:weather_app/view/screen/home/home.dart';
+import 'package:weather_app/view/home/home.dart';
 
 void main() {
   runApp(const MyApp());

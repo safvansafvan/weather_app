@@ -43,6 +43,7 @@ class MoreDetailsAboutWheater extends StatelessWidget {
             ),
           ],
         ),
+        CustomHeights.minHeight(context),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [

@@ -5,7 +5,6 @@ import 'package:weather_app/controller/getx/globel_controller.dart';
 import 'package:weather_app/view/widgets/current_weather_widget.dart';
 import 'package:weather_app/view/widgets/daily_weather.dart';
 import 'package:weather_app/view/widgets/header_widget.dart';
-import 'package:weather_app/view/widgets/more_details_widget.dart';
 import 'package:weather_app/view/widgets/weathers_hourly.dart';
 import 'package:weather_app/view/splash/splash.dart';
 
@@ -48,8 +47,6 @@ class HomeScreen extends StatelessWidget {
                                 currentWeatherData:
                                     controller.getData().getCurrentWeather()),
                             CustomHeights.commonHeight(context),
-                            MoreDetailsAboutWheater(),
-                            CustomHeights.minHeight(context),
                             WethersHourly(),
                             CustomHeights.commonHeight(context),
                             DailyWeather()

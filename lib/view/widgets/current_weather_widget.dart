@@ -8,6 +8,16 @@ class CurrentWeatherWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Column(
+      children: [
+        currentWeatherContainer(),
+        CustomHeights.commonHeight(context),
+        moreDetailsWidget(context)
+      ],
+    );
+  }
+
+  Widget currentWeatherContainer() {
     return Container(
       height: 200,
       margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -38,6 +48,73 @@ class CurrentWeatherWidget extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Widget moreDetailsWidget(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Container(
+              height: 60,
+              width: 60,
+              padding: const EdgeInsets.all(14),
+              decoration: BoxDecoration(
+                color: CustomColor.colorCard,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Image.asset('assets/icons/windspeed.png'),
+            ),
+            Container(
+              height: 60,
+              width: 60,
+              padding: const EdgeInsets.all(14),
+              decoration: BoxDecoration(
+                color: CustomColor.colorCard,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Image.asset('assets/icons/clouds.png'),
+            ),
+            Container(
+              height: 60,
+              width: 60,
+              padding: const EdgeInsets.all(14),
+              decoration: BoxDecoration(
+                color: CustomColor.colorCard,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Image.asset('assets/icons/humidity.png'),
+            ),
+          ],
+        ),
+        CustomHeights.minHeight(context),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            SizedBox(
+              height: 20,
+              width: 60,
+              child: Text(
+                  "${currentWeatherData.currentModel.windSpeed!.floor()} km/h",
+                  textAlign: TextAlign.center),
+            ),
+            SizedBox(
+              height: 20,
+              width: 60,
+              child: Text('${currentWeatherData.currentModel.clouds}%',
+                  textAlign: TextAlign.center),
+            ),
+            SizedBox(
+              height: 20,
+              width: 60,
+              child: Text('${currentWeatherData.currentModel.humidity}%',
+                  textAlign: TextAlign.center),
+            )
+          ],
+        )
+      ],
     );
   }
 }

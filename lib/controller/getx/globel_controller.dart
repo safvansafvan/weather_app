@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:weather_app/apiservice/get_api_resp.dart';
@@ -22,39 +24,54 @@ class GlobelController extends GetxController {
   void onInit() {
     super.onInit();
     if (isLoading.isTrue) {
-      checkPermision();
+      getLocation();
     } else {
       getIndex();
     }
   }
 
-  Future checkPermision() async {
-    bool isLocationPermission;
-    LocationPermission locationPermission;
-    isLocationPermission = await Geolocator.isLocationServiceEnabled();
-    if (!isLocationPermission) {
-      return Future.error('Location service not enabled');
-    }
-    locationPermission = await Geolocator.checkPermission();
-    if (locationPermission == LocationPermission.deniedForever) {
-      return Future.error("Location permission is denied forever");
-    } else if (locationPermission == LocationPermission.denied) {
-      locationPermission = await Geolocator.requestPermission();
-      if (locationPermission == LocationPermission.denied) {
-        return Future.error("Location permission is denied");
+  getLocation() async {
+    try {
+      bool isLocationEnabled;
+      LocationPermission locationPermission;
+
+      isLocationEnabled = await Geolocator.isLocationServiceEnabled();
+
+      if (!isLocationEnabled) {
+        throw Exception("Location service is not enabled");
       }
+
+      locationPermission = await Geolocator.checkPermission();
+
+      if (locationPermission == LocationPermission.deniedForever) {
+        throw Exception("Location permission is denied forever");
+      } else if (locationPermission == LocationPermission.denied) {
+        locationPermission = await Geolocator.requestPermission();
+        if (locationPermission == LocationPermission.denied) {
+          throw Exception("Location permission is denied");
+        }
+      }
+
+      final position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high,
+      );
+
+      latitude.value = position.latitude;
+      longitude.value = position.longitude;
+
+      final weather = await ApiService()
+          .getWeatherData(position.latitude, position.longitude);
+
+      if (weather == null) {
+        throw Exception("Failed to fetch weather data");
+      }
+
+      weatherData.value = weather;
+      isLoading.value = false;
+    } catch (e) {
+      log("Error: $e");
+      isLoading.value = false;
     }
-    return Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high)
-        .then((value) {
-      latitude.value = value.latitude;
-      longitude.value = value.longitude;
-      return ApiService()
-          .getWeather(value.latitude, value.longitude)
-          .then((value) {
-        weatherData.value = value;
-        isLoading.value = false;
-      });
-    });
   }
 
   RxInt getIndex() {

@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
-import 'package:dio/dio.dart';
+import 'package:http/http.dart' as http;
 import 'package:weather_app/apiservice/string.dart';
 import 'package:weather_app/model/current_weatherdata.dart';
 import 'package:weather_app/model/daily_weather_model.dart';
@@ -10,14 +10,14 @@ import 'package:weather_app/model/weather_data_model.dart';
 class ApiService {
   WeatherData? wheatherData;
 
-  Future getWeather(lat, lon) async {
+  Future getWeatherData(lat, lon) async {
     try {
-      var response = await Dio().get((apiUrl(lat, lon)));
-      var bodyData = jsonDecode(response.data);
+      var response = await http.get(Uri.parse(apiUrl(lat, lon)));
+      var jsonBody = jsonDecode(response.body);
       wheatherData = WeatherData(
-        CurrentWeatherData.fromJson(bodyData),
-        WeatherDataHourly.fromJson(bodyData),
-        WeatherDataDaily.fromJson(bodyData),
+        CurrentWeatherData.fromJson(jsonBody),
+        WeatherDataHourly.fromJson(jsonBody),
+        WeatherDataDaily.fromJson(jsonBody),
       );
       if (response.statusCode == 200 || response.statusCode == 201) {
         return wheatherData!;
@@ -25,11 +25,7 @@ class ApiService {
         log('Server Failure');
       }
     } catch (e) {
-      if (e is DioException) {
-        if (e.type == DioExceptionType.connectionError) {
-          log("enable internet");
-        }
-      }
+      log('Client Failure --- ${e.toString()}');
     }
   }
 }

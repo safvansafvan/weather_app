@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_app/controller/core/constant.dart';
+import 'package:weather_app/model/daily_weather_model.dart';
 
 class DailyWeather extends StatelessWidget {
-  const DailyWeather({super.key});
+  const DailyWeather({super.key, required this.weatherDataDaily});
+  final WeatherDataDaily weatherDataDaily;
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +14,7 @@ class DailyWeather extends StatelessWidget {
       margin: const EdgeInsets.all(20),
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-          color: CustomColor.dividerLine.withAlpha(150),
+          color: CustomColor.dividerLine,
           borderRadius: BorderRadius.circular(20)),
       child: Column(
         children: [
@@ -22,8 +24,8 @@ class DailyWeather extends StatelessWidget {
             child: Text(
               "Next Days",
               style: CustomFuction.textStyleFuction(
-                  size: 17,
-                  fontWeight: FontWeight.w500,
+                  size: 18,
+                  fontWeight: FontWeight.bold,
                   color: CustomColor.kblack),
             ),
           ),
@@ -42,7 +44,7 @@ class DailyWeather extends StatelessWidget {
                           SizedBox(
                             width: 80,
                             child: Text(
-                              getDay(10),
+                              getDay(weatherDataDaily.daily[index].dt),
                               style: CustomFuction.textStyleFuction(
                                   size: 13,
                                   fontWeight: FontWeight.w300,
@@ -52,9 +54,11 @@ class DailyWeather extends StatelessWidget {
                           SizedBox(
                             height: 30,
                             width: 30,
-                            child: Image.asset('assets/icons/clouds.png'),
+                            child: Image.asset(
+                                'assets/weather/${weatherDataDaily.daily[index].weather![0].icon}.png'),
                           ),
-                          Text('37/28')
+                          Text(
+                              '${weatherDataDaily.daily[index].temp!.max}°/${weatherDataDaily.daily[index].temp!.min}')
                         ],
                       ),
                     )

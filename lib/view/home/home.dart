@@ -51,7 +51,10 @@ class HomeScreen extends StatelessWidget {
                                 weatherDataHourly:
                                     controller.getData().getHourlyWeather()),
                             CustomHeights.commonHeight(context),
-                            DailyWeather()
+                            DailyWeather(
+                              weatherDataDaily:
+                                  controller.getData().getDailyWeather(),
+                            )
                           ],
                         ),
                       ),

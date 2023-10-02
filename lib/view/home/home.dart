@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:weather_app/controller/core/constant.dart';
 import 'package:weather_app/controller/getx/globel_controller.dart';
+import 'package:weather_app/view/widgets/comfort_level_widget.dart';
 import 'package:weather_app/view/widgets/current_weather_widget.dart';
 import 'package:weather_app/view/widgets/daily_weather.dart';
 import 'package:weather_app/view/widgets/header_widget.dart';
@@ -54,6 +55,10 @@ class HomeScreen extends StatelessWidget {
                             DailyWeather(
                               weatherDataDaily:
                                   controller.getData().getDailyWeather(),
+                            ),
+                            ComfortLevelWidget(
+                              currentWeatherData:
+                                  controller.getData().getCurrentWeather(),
                             )
                           ],
                         ),

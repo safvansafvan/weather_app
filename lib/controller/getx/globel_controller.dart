@@ -20,6 +20,10 @@ class GlobelController extends GetxController {
     return weatherData.value;
   }
 
+  RxInt getIndex() {
+    return currentIndex;
+  }
+
   @override
   void onInit() {
     super.onInit();
@@ -72,9 +76,5 @@ class GlobelController extends GetxController {
       log("Error: $e");
       isLoading.value = false;
     }
-  }
-
-  RxInt getIndex() {
-    return currentIndex;
   }
 }

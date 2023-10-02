@@ -31,7 +31,6 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  lottie: ^2.6.0
   google_fonts: ^5.1.0
   intl: ^0.18.1
   get: ^4.6.6
@@ -39,6 +38,8 @@ dependencies:
   http: ^1.1.0
   geocoding: ^2.1.0
   sleek_circular_slider: ^2.0.1
+  lottie: ^2.6.0
+  
 
 dev_dependencies:
   flutter_test:
@@ -61,7 +62,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/weather/
-    - assets/splashloading.json
+    - assets/loading.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

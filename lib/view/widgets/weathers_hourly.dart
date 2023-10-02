@@ -54,12 +54,12 @@ class WethersHourly extends StatelessWidget {
                             ),
                             blurRadius: 30,
                             spreadRadius: 1,
-                            color: CustomColor.dividerLine.withAlpha(150)),
+                            color: CustomColor.dividerLine.withAlpha(200)),
                       ],
                       gradient: cardInd.value == index
                           ? const LinearGradient(colors: [
-                              CustomColor.firstGradientColor,
-                              CustomColor.secondGradientColor
+                              CustomColor.gradientColorOne,
+                              CustomColor.gradientColorTwo
                             ])
                           : null),
                   child: hourlyDetails(

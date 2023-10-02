@@ -6,8 +6,8 @@ class CustomColor {
   static Color kpurple = Colors.deepPurple;
   static Color kgrey = Colors.grey;
   static const colorCard = Color(0xffE9ECF1);
-  static const firstGradientColor = Color(0xff408ADE);
-  static const secondGradientColor = Color(0xff5286CD);
+  static const gradientColorOne = Color(0xff408ADE);
+  static const gradientColorTwo = Color(0xff5286CD);
   static const dividerLine = Color(0xffE4E4EE);
 }
 

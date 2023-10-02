@@ -38,10 +38,10 @@ class ComfortLevelWidget extends StatelessWidget {
             ),
             customColors: CustomSliderColors(
                 hideShadow: true,
-                trackColor: CustomColor.firstGradientColor.withAlpha(80),
+                trackColor: CustomColor.gradientColorOne.withAlpha(80),
                 progressBarColors: [
-                  CustomColor.firstGradientColor,
-                  CustomColor.secondGradientColor,
+                  CustomColor.gradientColorOne,
+                  CustomColor.gradientColorTwo,
                 ]),
           ),
         ),

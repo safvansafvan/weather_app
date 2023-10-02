@@ -7,7 +7,7 @@ import 'package:weather_app/view/widgets/current_weather_widget.dart';
 import 'package:weather_app/view/widgets/daily_weather.dart';
 import 'package:weather_app/view/widgets/header_widget.dart';
 import 'package:weather_app/view/widgets/weathers_hourly.dart';
-import 'package:weather_app/view/splash/splash.dart';
+import 'package:weather_app/view/widgets/loading.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
         body: SafeArea(
           child: Obx(
             () => controller.checkLoading().isTrue
-                ? const Center(child: SplashScreen())
+                ? Center(child: loading())
                 : SingleChildScrollView(
                     child: Container(
                       decoration: const BoxDecoration(

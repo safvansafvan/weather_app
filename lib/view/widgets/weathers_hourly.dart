@@ -6,8 +6,10 @@ import 'package:weather_app/controller/getx/globel_controller.dart';
 import 'package:weather_app/model/hourly_weather_model.dart';
 
 class WethersHourly extends StatelessWidget {
-  const WethersHourly({super.key, required this.weatherDataHourly});
+  const WethersHourly(
+      {super.key, required this.weatherDataHourly, required this.screenSize});
   final WeatherDataHourly weatherDataHourly;
+  final Size screenSize;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class WethersHourly extends StatelessWidget {
   Widget hourlyList() {
     final cardInd = GlobelController().getIndex();
     return Container(
-      height: 150,
+      height: screenSize.height * 0.18,
       padding: const EdgeInsets.only(top: 10, bottom: 10),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -42,7 +44,7 @@ class WethersHourly extends StatelessWidget {
                   cardInd.value = index;
                 },
                 child: Container(
-                  width: 90,
+                  width: screenSize.width * 0.23,
                   margin: const EdgeInsets.only(left: 20, right: 5),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),

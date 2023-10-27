@@ -4,13 +4,15 @@ import 'package:weather_app/controller/core/constant.dart';
 import 'package:weather_app/model/daily_weather_model.dart';
 
 class DailyWeather extends StatelessWidget {
-  const DailyWeather({super.key, required this.weatherDataDaily});
+  const DailyWeather(
+      {super.key, required this.weatherDataDaily, required this.screenSize});
   final WeatherDataDaily weatherDataDaily;
+  final Size screenSize;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 400,
+      height: screenSize.height * 0.44,
       margin: const EdgeInsets.all(20),
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
@@ -30,13 +32,13 @@ class DailyWeather extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 300,
+            height: screenSize.height * 0.35,
             child: ListView.builder(
               itemBuilder: (context, index) {
                 return Column(
                   children: [
                     Container(
-                      height: 60,
+                      height: screenSize.height * 0.07,
                       padding: const EdgeInsets.only(left: 10, right: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -52,8 +54,8 @@ class DailyWeather extends StatelessWidget {
                             ),
                           ),
                           SizedBox(
-                            height: 30,
-                            width: 30,
+                            height: screenSize.height * 0.09,
+                            width: screenSize.width * 0.09,
                             child: Image.asset(
                                 'assets/weather/${weatherDataDaily.daily[index].weather![0].icon}.png'),
                           ),

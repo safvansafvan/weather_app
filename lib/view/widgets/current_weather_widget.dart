@@ -3,9 +3,10 @@ import 'package:weather_app/controller/core/constant.dart';
 import 'package:weather_app/model/current_weatherdata.dart';
 
 class CurrentWeatherWidget extends StatelessWidget {
-  const CurrentWeatherWidget({super.key, required this.currentWeatherData});
+  const CurrentWeatherWidget(
+      {super.key, required this.currentWeatherData, required this.screenSize});
   final CurrentWeatherData currentWeatherData;
-
+  final Size screenSize;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,7 +20,7 @@ class CurrentWeatherWidget extends StatelessWidget {
 
   Widget currentWeatherContainer() {
     return Container(
-      height: 200,
+      height: screenSize.height * 0.23,
       margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
           gradient: const LinearGradient(colors: [
@@ -27,7 +28,7 @@ class CurrentWeatherWidget extends StatelessWidget {
             Color.fromARGB(255, 74, 152, 216)
           ]),
           borderRadius: BorderRadius.circular(30),
-          border: Border.all(color: Colors.blue, width: 2)),
+          border: Border.all(color: Colors.blueGrey)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -58,8 +59,8 @@ class CurrentWeatherWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Container(
-              height: 60,
-              width: 60,
+              height: screenSize.height * 0.07,
+              width: screenSize.width * 0.15,
               padding: const EdgeInsets.all(14),
               decoration: BoxDecoration(
                 color: CustomColor.colorCard,
@@ -68,8 +69,8 @@ class CurrentWeatherWidget extends StatelessWidget {
               child: Image.asset('assets/icons/windspeed.png'),
             ),
             Container(
-              height: 60,
-              width: 60,
+              height: screenSize.height * 0.07,
+              width: screenSize.width * 0.15,
               padding: const EdgeInsets.all(14),
               decoration: BoxDecoration(
                 color: CustomColor.colorCard,
@@ -78,8 +79,8 @@ class CurrentWeatherWidget extends StatelessWidget {
               child: Image.asset('assets/icons/clouds.png'),
             ),
             Container(
-              height: 60,
-              width: 60,
+              height: screenSize.height * 0.07,
+              width: screenSize.width * 0.15,
               padding: const EdgeInsets.all(14),
               decoration: BoxDecoration(
                 color: CustomColor.colorCard,

@@ -27,6 +27,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        CustomHeights.minHeight(context),
         SizedBox(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "C:/Users/hp/OneDrive/Documents/Projects/weather_app/windows/flutter"
+    "cmake.sourceDirectory": "C:/Users/hp/OneDrive/Documents/Projects/weather_app/windows/flutter",
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

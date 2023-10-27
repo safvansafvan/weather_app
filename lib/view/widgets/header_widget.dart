@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_app/controller/core/constant.dart';
 import 'package:weather_app/controller/getx/globel_controller.dart';
+import 'package:weather_app/view/widgets/more_popup.dart';
 
 class HeaderWidget extends StatefulWidget {
   const HeaderWidget({super.key});
@@ -30,22 +31,29 @@ class _HeaderWidgetState extends State<HeaderWidget> {
         CustomHeights.minHeight(context),
         SizedBox(
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Icon(
-                Icons.location_on,
-                color: CustomColor.kpurple,
-                size: 30,
+              IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.location_on,
+                    color: CustomColor.kpurple,
+                    size: 30,
+                  ),
+                  CustomWidth.commonwidth(context),
+                  Text(
+                    city,
+                    style: CustomFuction.textStyleFuction(
+                      size: 23,
+                      fontWeight: FontWeight.bold,
+                      color: CustomColor.kpurple,
+                    ),
+                  ),
+                ],
               ),
-              CustomWidth.commonwidth(context),
-              Text(
-                city,
-                style: CustomFuction.textStyleFuction(
-                  size: 23,
-                  fontWeight: FontWeight.bold,
-                  color: CustomColor.kpurple,
-                ),
-              )
+              const MorePopUp()
             ],
           ),
         ),

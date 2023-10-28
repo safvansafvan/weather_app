@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/controller/core/constant.dart';
+import 'package:weather_app/view/settings/screen/about_us.dart';
 import 'package:weather_app/view/settings/screen/privacy_and_policy.dart';
 import 'package:weather_app/view/settings/screen/terms_conditions.dart';
 
 class SettingsFieldWidget extends StatelessWidget {
   const SettingsFieldWidget(
-      {super.key, required this.title, this.about, this.privacy, this.terms});
+      {super.key,
+      required this.title,
+      this.about = false,
+      this.privacy = false,
+      this.terms = false});
   final String title;
-  final bool? privacy;
-  final bool? terms;
-  final bool? about;
+  final bool privacy;
+  final bool terms;
+  final bool about;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +36,7 @@ class SettingsFieldWidget extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const PrivacyAndPolicy(),
+                  builder: (context) => const AboutUs(),
                 ));
           }
         },

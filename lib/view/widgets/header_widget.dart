@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:share/share.dart';
 import 'package:weather_app/controller/core/constant.dart';
 import 'package:weather_app/controller/getx/globel_controller.dart';
-import 'package:weather_app/view/widgets/more_popup.dart';
+import 'package:weather_app/view/settings/settings.dart';
 
 class HeaderWidget extends StatefulWidget {
   const HeaderWidget({super.key});
@@ -33,7 +34,13 @@ class _HeaderWidgetState extends State<HeaderWidget> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
+              IconButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const Settings(),
+                    ));
+                  },
+                  icon: const Icon(Icons.settings)),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -53,7 +60,11 @@ class _HeaderWidgetState extends State<HeaderWidget> {
                   ),
                 ],
               ),
-              const MorePopUp()
+              IconButton(
+                  onPressed: () async {
+                    await share();
+                  },
+                  icon: const Icon(Icons.share))
             ],
           ),
         ),
@@ -72,5 +83,9 @@ class _HeaderWidgetState extends State<HeaderWidget> {
     setState(() {
       city = place.locality!;
     });
+  }
+
+  Future<void> share() async {
+    await Share.share('https://www.amazon.com/gp/product/B0CLKVWV3Q');
   }
 }

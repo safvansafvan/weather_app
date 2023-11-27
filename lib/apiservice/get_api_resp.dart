@@ -20,7 +20,7 @@ class ApiService {
           WeatherDataHourly.fromJson(bodyData),
           WeatherDataDaily.fromJson(bodyData),
         );
-        return weatherData!;
+        return weatherData;
       } else {
         log('Server Failure');
       }

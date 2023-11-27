@@ -10,16 +10,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
-  google_fonts: ^5.1.0
-  intl: ^0.18.1
-  get: ^4.6.6
-  geolocator: ^10.1.0
-  geocoding: ^2.1.0
-  sleek_circular_slider: ^2.0.1
-  lottie: ^2.6.0
-  dio: ^5.3.3
+  cupertino_icons: 1.0.2
+  google_fonts: 5.1.0
+  intl: 0.18.1
+  get: 4.6.6
+  geolocator: 10.1.0
+  geocoding: 2.1.0
+  sleek_circular_slider: 2.0.1
+  lottie: 2.6.0
+  dio: 5.3.3
   share: 2.0.4
+  connectivity_plus: 5.0.2
   
 
 dev_dependencies:
@@ -35,7 +36,6 @@ flutter:
     - assets/icons/
     - assets/weather/
     - assets/loading.json
-
   # fonts:
   #   - family: Schyler
   #     fonts:

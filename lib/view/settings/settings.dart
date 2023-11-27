@@ -22,6 +22,9 @@ class Settings extends StatelessWidget {
           SettingsFieldWidget(
             title: 'About Us',
             about: true,
+          ),
+          SettingsFieldWidget(
+            title: 'Version : 1.1.0',
           )
         ],
       ),

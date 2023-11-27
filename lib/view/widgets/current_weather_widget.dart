@@ -23,12 +23,9 @@ class CurrentWeatherWidget extends StatelessWidget {
       height: screenSize.height * 0.23,
       margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
-          gradient: const LinearGradient(colors: [
-            Color.fromARGB(255, 124, 91, 181),
-            Color.fromARGB(255, 74, 152, 216)
-          ]),
-          borderRadius: BorderRadius.circular(30),
-          border: Border.all(color: Colors.blueGrey)),
+        color: Colors.blue.withAlpha(100),
+        borderRadius: BorderRadius.circular(30),
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -44,7 +41,7 @@ class CurrentWeatherWidget extends StatelessWidget {
               style: CustomFuction.textStyleFuction(
                   size: 80,
                   fontWeight: FontWeight.bold,
-                  color: CustomColor.kwhite),
+                  color: CustomColor.kpurple.withAlpha(500)),
             ),
           ),
         ],

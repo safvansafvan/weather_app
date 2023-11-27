@@ -17,61 +17,65 @@ class HomeScreen extends StatelessWidget {
     var screenSize = MediaQuery.of(context).size;
     final GlobelController controller =
         Get.put(GlobelController(), permanent: true);
-    return RefreshIndicator(
-      onRefresh: () async {
-        controller.isLoading.value = true;
-        controller.onInit();
-      },
-      child: Scaffold(
-        body: Obx(
-          () => controller.checkLoading().isTrue
-              ? Center(child: loading())
-              : SingleChildScrollView(
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [
-                            Color.fromARGB(255, 140, 175, 203),
-                            Colors.white10
-                          ]),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Column(
-                        children: [
-                          CustomHeights.commonHeight(context),
-                          const HeaderWidget(),
-                          CustomHeights.commonHeight(context),
-                          CurrentWeatherWidget(
-                            currentWeatherData:
-                                controller.getData().getCurrentWeather(),
-                            screenSize: screenSize,
+    return Stack(
+      children: [
+        RefreshIndicator(
+          onRefresh: () async {
+            controller.isLoading.value = true;
+            controller.onInit();
+          },
+          child: Scaffold(
+            body: Obx(
+              () => controller.checkLoading().isTrue
+                  ? Center(child: loading())
+                  : SingleChildScrollView(
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [
+                                Color.fromARGB(255, 140, 175, 203),
+                                Colors.white10
+                              ]),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Column(
+                            children: [
+                              CustomHeights.commonHeight(context),
+                              const HeaderWidget(),
+                              CustomHeights.commonHeight(context),
+                              CurrentWeatherWidget(
+                                currentWeatherData:
+                                    controller.getData().getCurrentWeather(),
+                                screenSize: screenSize,
+                              ),
+                              CustomHeights.commonHeight(context),
+                              WethersHourly(
+                                weatherDataHourly:
+                                    controller.getData().getHourlyWeather(),
+                                screenSize: screenSize,
+                              ),
+                              CustomHeights.commonHeight(context),
+                              DailyWeather(
+                                weatherDataDaily:
+                                    controller.getData().getDailyWeather(),
+                                screenSize: screenSize,
+                              ),
+                              ComfortLevelWidget(
+                                currentWeatherData:
+                                    controller.getData().getCurrentWeather(),
+                              )
+                            ],
                           ),
-                          CustomHeights.commonHeight(context),
-                          WethersHourly(
-                            weatherDataHourly:
-                                controller.getData().getHourlyWeather(),
-                            screenSize: screenSize,
-                          ),
-                          CustomHeights.commonHeight(context),
-                          DailyWeather(
-                            weatherDataDaily:
-                                controller.getData().getDailyWeather(),
-                            screenSize: screenSize,
-                          ),
-                          ComfortLevelWidget(
-                            currentWeatherData:
-                                controller.getData().getCurrentWeather(),
-                          )
-                        ],
+                        ),
                       ),
                     ),
-                  ),
-                ),
+            ),
+          ),
         ),
-      ),
+      ],
     );
   }
 }

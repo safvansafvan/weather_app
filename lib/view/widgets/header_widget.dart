@@ -19,6 +19,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
   DateTime dateTime = DateTime.now();
   final GlobelController controller =
       Get.put(GlobelController(), permanent: true);
+
   @override
   void initState() {
     getPlace(controller.getLatitude().value, controller.getLongitude().value);

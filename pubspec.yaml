@@ -1,8 +1,8 @@
 name: weather_app
 description: A new Flutter project.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: 'none' 
 
-version: 1.0.0+1
+version: 1.0.0+2
 
 environment:
   sdk: '>=3.0.6 <4.0.0'
@@ -20,7 +20,7 @@ dependencies:
   lottie: 2.6.0
   dio: 5.3.3
   share: 2.0.4
-  connectivity_plus: 5.0.2
+  awesome_dialog: 2.2.1
   
 
 dev_dependencies:

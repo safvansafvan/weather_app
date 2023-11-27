@@ -12,7 +12,7 @@ class AboutUs extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Wether App',
+            Text('Weather App',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
             Text('Developed By Muhammed Safvan',
                 style: TextStyle(fontStyle: FontStyle.italic)),

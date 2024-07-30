@@ -21,7 +21,8 @@ class ComfortLevelWidget extends StatelessWidget {
         SleekCircularSlider(
           min: 0,
           max: 100,
-          initialValue: currentWeatherData.currentModel.humidity!.toDouble(),
+          initialValue:
+              currentWeatherData.currentModel.humidity?.toDouble() ?? 0,
           appearance: CircularSliderAppearance(
             size: 140,
             customWidths: CustomSliderWidths(

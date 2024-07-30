@@ -30,7 +30,7 @@ class CurrentWeatherWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Image.asset(
-              'assets/weather/${currentWeatherData.currentModel.weather![0].icon}.png'),
+              'assets/weather/${currentWeatherData.currentModel.weather?[0].icon}.png'),
           const VerticalDivider(
             endIndent: 5,
             indent: 5,
@@ -39,9 +39,7 @@ class CurrentWeatherWidget extends StatelessWidget {
             child: Text(
               "${currentWeatherData.currentModel.temp!.floor()}°",
               style: CustomFuction.textStyleFuction(
-                  size: 80,
-                  fontWeight: FontWeight.bold,
-                  color: CustomColor.kpurple.withAlpha(500)),
+                  size: 80, fontWeight: FontWeight.bold, color: Colors.black54),
             ),
           ),
         ],

@@ -1,11 +1,11 @@
 name: weather_app
 description: A new Flutter project.
-publish_to: 'none' 
+publish_to: "none"
 
 version: 1.0.0+2
 
 environment:
-  sdk: '>=3.0.6 <4.0.0'
+  sdk: ">=3.0.6 <4.0.0"
 
 dependencies:
   flutter:
@@ -21,7 +21,7 @@ dependencies:
   dio: 5.3.3
   share: 2.0.4
   awesome_dialog: 2.2.1
-  
+  open_app_settings: ^2.0.1
 
 dev_dependencies:
   flutter_test:

@@ -33,7 +33,7 @@ class WethersHourly extends StatelessWidget {
   Widget hourlyList() {
     final cardInd = GlobelController().getIndex();
     return Container(
-      height: screenSize.height * 0.18,
+      height: screenSize.height * 0.20,
       padding: const EdgeInsets.only(top: 10, bottom: 10),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -65,11 +65,14 @@ class WethersHourly extends StatelessWidget {
                             ])
                           : null),
                   child: hourlyDetails(
-                      temp: weatherDataHourly.hourlyModel[index].temp!.floor(),
+                      temp:
+                          weatherDataHourly.hourlyModel[index].temp?.floor() ??
+                              0,
                       timeStamp:
-                          weatherDataHourly.hourlyModel[index].dt!.floor(),
+                          weatherDataHourly.hourlyModel[index].dt?.floor() ?? 0,
                       weatherIcon: weatherDataHourly
-                          .hourlyModel[index].weather![0].icon!,
+                              .hourlyModel[index].weather?[0].icon ??
+                          '',
                       index: index,
                       cardInd: cardInd.toInt()),
                 )),

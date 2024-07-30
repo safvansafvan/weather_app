@@ -45,19 +45,18 @@ class _HeaderWidgetState extends State<HeaderWidget> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.location_on,
-                    color: CustomColor.kpurple,
+                    color: Colors.black54,
                     size: 30,
                   ),
                   CustomWidth.commonwidth(context),
                   Text(
                     city,
                     style: CustomFuction.textStyleFuction(
-                      size: 23,
-                      fontWeight: FontWeight.bold,
-                      color: CustomColor.kpurple,
-                    ),
+                        size: 23,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black54),
                   ),
                 ],
               ),

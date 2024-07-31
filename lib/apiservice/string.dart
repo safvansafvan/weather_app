@@ -1,4 +1,4 @@
-const String apiKey = 'c40feb8da01004f2b11ec099f8cd0600';
+const String apiKey = '';
 
 String apiUrl(double lat, double long) {
   String url =

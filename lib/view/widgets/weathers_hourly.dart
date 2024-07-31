@@ -33,7 +33,7 @@ class WethersHourly extends StatelessWidget {
   Widget hourlyList() {
     final cardInd = GlobelController().getIndex();
     return Container(
-      height: screenSize.height * 0.20,
+      height: screenSize.height * 0.18,
       padding: const EdgeInsets.only(top: 10, bottom: 10),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,

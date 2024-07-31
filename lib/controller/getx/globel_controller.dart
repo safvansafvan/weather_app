@@ -1,6 +1,8 @@
+import 'dart:async';
 import 'dart:developer';
 import 'package:get/get.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:get/get_rx/get_rx.dart';
 import 'package:weather_app/apiservice/get_api_resp.dart';
 import 'package:weather_app/model/weather_data_model.dart';
 import 'package:weather_app/view/widgets/settings_permission.dart';

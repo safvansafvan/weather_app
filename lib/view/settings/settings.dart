@@ -24,7 +24,7 @@ class Settings extends StatelessWidget {
             about: true,
           ),
           SettingsFieldWidget(
-            title: 'Version : 1.1.0',
+            title: 'Version : 1.0.2',
           )
         ],
       ),

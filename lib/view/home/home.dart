@@ -14,9 +14,10 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var screenSize = MediaQuery.of(context).size;
     final GlobelController controller =
         Get.put(GlobelController(), permanent: true);
+
+    var screenSize = MediaQuery.of(context).size;
 
     return RefreshIndicator(
       onRefresh: () async {
@@ -26,7 +27,8 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
         body: Obx(() => (controller.checkLoading().isTrue)
             ? Center(child: loading())
-            : controller.errorMessage.isNotEmpty
+            : (controller.errorMessage.isNotEmpty) ||
+                    controller.weatherData.value.current == null
                 ? Center(
                     child: Text(
                       "${controller.errorMessage.value} Or\n App -> Permissions -> Location Permission Always",

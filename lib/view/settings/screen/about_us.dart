@@ -16,7 +16,7 @@ class AboutUs extends StatelessWidget {
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
             Text('Developed By Muhammed Safvan',
                 style: TextStyle(fontStyle: FontStyle.italic)),
-            Text('Version : 1.1.0'),
+            Text('Version : 1.0.2'),
           ],
         ),
       ),
